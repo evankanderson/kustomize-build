@@ -1,0 +1,13 @@
+apiVersion: eventing.knative.dev/v1alpha1
+kind: Trigger
+metadata:
+    name: trigger-svc
+spec:
+    filter:
+        typeAndSource:
+            type: dev.knative.com.github.pullRequest
+    subscriber:
+        ref:
+            apiVersion: serving.knative.dev/v1alpha1
+            kind: Service
+            name: test-svc
